@@ -1,6 +1,7 @@
 $(document).ready(function() {
     var refresh = function() {
-        $.get("/api/opcounter", function(data) {
+        var counter = $("#counter");
+        $.get("/api/opcounter/" + counter.val(), function(data) {
             $.plot("#opcounter_chart", [data])
         })
     };

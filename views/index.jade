@@ -5,6 +5,15 @@ block content
     div.panel.panel-default
       div.panel-heading OPS API Demo
       div.panel-body
-        button.btn.btn-primary#get_opcounter Refresh
+        div.row
+          div.col-sm-2
+            select.form-control#counter
+              option(value='OPCOUNTERS_CMD', selected=true) OPCOUNTERS_CMD
+              option(value='OPCOUNTERS_QUERY') OPCOUNTERS_QUERY
+              option(value='OPCOUNTERS_INSERT') OPCOUNTERS_INSERT
+              option(value='OPCOUNTERS_DELETE') OPCOUNTERS_DELETE
+              option(value='OPCOUNTERS_UPDATE') OPCOUNTERS_UPDATE
+          div.col-sm-2
+            button.btn.btn-primary#get_opcounter Refresh
         hr
         div.chart#opcounter_chart

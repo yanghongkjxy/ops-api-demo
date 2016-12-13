@@ -5,10 +5,10 @@ var _ = require('underscore');
 var digestRequest = require("request-digest")(config.httpDigestAuth.user, config.httpDigestAuth.password);
 
 /* GET home page. */
-router.get('/opcounter', function(req, res, next) {
+router.get('/opcounter/:counter', function(req, res, next) {
     digestRequest.request({
         host: 'http://54.249.48.203',
-        path: '/api/public/v1.0/groups/5823e8f1e4b07efb54b957f2/hosts/2a284201464cbf2ad1ce6c75f5f1c007/metrics/OPCOUNTERS_QUERY',
+        path: '/api/public/v1.0/groups/5823e8f1e4b07efb54b957f2/hosts/2a284201464cbf2ad1ce6c75f5f1c007/metrics/' + req.params.counter,
         port: 8080,
         method: 'GET'
     }, function (error, response, body) {
